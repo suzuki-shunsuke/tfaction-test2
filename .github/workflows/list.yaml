@@ -1,0 +1,69 @@
+name: List
+on: pull_request
+
+jobs:
+  list-152:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@0ad4b8fadaa221de15dcec353f45205ec38ea70b # v4.1.4
+      - uses: aquaproj/aqua-installer@6ce1f8848ec8e61f14d57bd5d7597057a6dd187c # v3.0.1
+        with:
+          aqua_version: v2.36.1
+      - id: list-targets
+        uses: suzuki-shunsuke/tfaction/list-targets@v1.5.2
+      - run: echo "$NOTE" >> "$GITHUB_STEP_SUMMARY"
+        env:
+          NOTE: |
+
+            ## v1.5.2
+
+            ```json
+            ${{ steps.list-targets.outputs.targets }}
+            ```
+
+  list-170:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@0ad4b8fadaa221de15dcec353f45205ec38ea70b # v4.1.4
+      - uses: aquaproj/aqua-installer@6ce1f8848ec8e61f14d57bd5d7597057a6dd187c # v3.0.1
+        with:
+          aqua_version: v2.36.1
+      - id: list-targets
+        uses: suzuki-shunsuke/tfaction/list-targets@v1.7.0
+      - run: echo "$NOTE" >> "$GITHUB_STEP_SUMMARY"
+        env:
+          NOTE: |
+
+            ## v1.7.0
+
+            ```json
+            ${{ steps.list-targets.outputs.targets }}
+            ```
+
+  list-1100:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@0ad4b8fadaa221de15dcec353f45205ec38ea70b # v4.1.4
+      - uses: aquaproj/aqua-installer@6ce1f8848ec8e61f14d57bd5d7597057a6dd187c # v3.0.1
+        with:
+          aqua_version: v2.36.1
+      - id: list-targets
+        uses: suzuki-shunsuke/tfaction/list-targets@v1.10.0
+      - run: echo "$NOTE" >> "$GITHUB_STEP_SUMMARY"
+        env:
+          NOTE: |
+
+            ## v1.10.0
+
+            ```json
+            ${{ steps.list-targets.outputs.targets }}
+            ```
